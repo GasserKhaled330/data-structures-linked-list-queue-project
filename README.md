@@ -31,7 +31,7 @@ Start with implementing a singly linked list in file ``./implementation/01-singl
 To run the test specs, run this command at the root of your project:
 
 ```bash
-npm test implementation/test 01-singly-linked-list-specs.js
+npm test implementation/test/01-singly-linked-list-specs.js
 ```
 
 This implementation of a singly linked list will have `head` and `length` pointers. The nodes will have a `next` pointer only and will store a single `value`.
