@@ -167,17 +167,53 @@ class DoublyLinkedList {
     // Returns the middle node
     // Implement this as a singly linked list then as a doubly linked list
     // How do the implementation for singly and doubly vary if at all?
+    let fastPtr = this.head;
+    let slowPtr = this.head;
+
+    if (this.head) {
+      while (fastPtr.next !== this.tail && fastPtr !== this.tail) {
+        fastPtr = fastPtr.next.next;
+        slowPtr = slowPtr.next;
+      }
+      return slowPtr;
+    }
     // Write your hypothesis on the time complexity of this method here
+    // O(n)
   }
 
   reverse() {
     // Returns a new reversed version of the linked list
+    const newList = new DoublyLinkedList();
+
+    let cur = this.tail;
+
+    while (cur) {
+      newList.addToTail(cur.value);
+      cur = cur.prev;
+    }
+
+    return newList;
     // Write your hypothesis on the time complexity of this method here
+    // O(n)
   }
 
   reverseInPlace() {
     // Reverses the linked list in-place
+    let temp = null;
+    let cur = this.head;
+    while (cur) {
+      temp = cur.prev;
+      cur.prev = cur.next;
+      cur.next = temp;
+      cur = cur.prev;
+    }
+
+    if (temp) {
+      this.head = temp.prev;
+    }
+
     // Write your hypothesis on the time complexity of this method here
+    // O(n)
   }
 }
 
